@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Choose Candy</title>
+    </head>
+<body>
+
+<h2>Pothula Krishna Narendra Kumar Choose Candy</h2>
+
+<form>
+
+        <input type="checkbox" id="dark" name="candy" value="true">
+        <label for="dark">Dark Chocolate</label> 
+        <br>
+     
+        <input type="checkbox" id="nuts" name="vacation" value="true">
+        <label for="nuts">Nuts</label> 
+        <br>
+    
+        <input type="checkbox" id="chewy" name="vacation" value="false">
+        <label for="chewy">Chewy</label> 
+        <br>
+        <br>
+        <input type="button" value="Select a box" onclick="selectBox()">
+    
+    
+    
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<form>
+    <label for="form1_size">Enter the size</label>
+    <input type ="text" id="form1_size" name="form1_size" value="Size"> 
+    <br>
+    <br>
+    <label for="form1_price">Enter price</label>
+    <input type ="text" id="form1_price" name="form1_price"> 
+    <br>
+    <br>
+    <input type="button" onclick="updateBox()" value="Update the box">
+</form>
+
+<p id="result2">This text will be replaced </p>
+
+<script> 
+
+let my_candy_box={};
+function selectBox()
+    {
+        my_candy_box={};
+        
+        let dark_choco=document.getElementById("dark").checked
+        let nuts=document.getElementById("nuts").checked
+        let chewy=document.getElementById("chewy").checked
+        
+        if(dark_choco)
+        {
+            my_candy_box.dark_choco = true;
+        }
+        else
+        {
+            my_candy_box.dark_choco = false;
+        }
+        if(nuts)
+        {
+            my_candy_box.nuts = true;
+        }
+        else
+        {
+            my_candy_box.nuts = false;
+        }
+        if(chewy)
+        {
+            my_candy_box.chewy = true;
+        }
+        else
+        {
+            my_candy_box.chewy = false;
+        }
+        document.getElementById("result").innerHTML=JSON.stringify(my_candy_box)
+    }
+
+    function updateBox() 
+    {
+        sze = document.getElementById("form1_size").value
+        prce = document.getElementById("form1_price").value
+        outpt = document.getElementById("result2")
+
+        my_candy_box["size"] = sze
+        my_candy_box["price"] = prce
+
+        outpt.innerHTML = JSON.stringify(my_candy_box)
+    }
+</script>
+
+</body>
+</html> 
